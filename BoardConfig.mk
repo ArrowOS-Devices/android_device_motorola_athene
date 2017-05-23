@@ -230,6 +230,9 @@ TARGET_USE_SDCLANG := true
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-12-01
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
+
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/vendor/sepolicy
