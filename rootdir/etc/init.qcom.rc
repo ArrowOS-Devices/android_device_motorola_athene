@@ -789,7 +789,7 @@ service vendor.ppd /vendor/bin/mm-pp-daemon
     socket pps stream 0660 system system
     group system graphics
 
-service wcnss-service /system/bin/wcnss_service
+service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
