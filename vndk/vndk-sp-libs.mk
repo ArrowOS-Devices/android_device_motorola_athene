@@ -24,4 +24,5 @@ VNDK_SP_LIBRARIES := \
     libion \
     liblzma \
     libunwind \
-    libutils \
+    libunwindstack \
+    libutils
