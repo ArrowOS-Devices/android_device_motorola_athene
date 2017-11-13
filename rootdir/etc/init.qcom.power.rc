@@ -6,9 +6,7 @@ on boot
     chown system system /dev/cpuset/camera-daemon/tasks
     chmod 0664 /dev/cpuset/camera-daemon/tasks
 
-    # update foreground cpuset now that processors are up
     # reserve CPU 4 for the top app
-    write /dev/cpuset/foreground/cpus 0-3,5-7
     write /dev/cpuset/background/cpus 4
     write /dev/cpuset/system-background/cpus 5-7
     write /dev/cpuset/top-app/cpus 0-7
