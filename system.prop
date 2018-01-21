@@ -97,9 +97,6 @@ persist.data.netmgrd.qos.enable=false
 persist.data.mode=concurrent
 persist.data.iwlan.enable=true
 
-# SensorService
-system_init.startsensorservice=0
-
 # Time
 persist.timed.enable=true
 
