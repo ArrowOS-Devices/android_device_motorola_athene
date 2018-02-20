@@ -797,9 +797,9 @@ service ptt_ffbm /system/bin/ptt_socket_app -f -d
     oneshot
 
 service vendor.loc_launcher /vendor/bin/loc_launcher
-    #loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps inet net_raw oem_2950 net_admin wifi
+    user gps
+    group gps
     writepid /dev/cpuset/system-background/tasks
 
 on property:hw.fm.init=1
