@@ -25,4 +25,6 @@ VNDK_SP_LIBRARIES := \
     liblzma \
     libunwind \
     libunwindstack \
-    libutils
+    libutils \
+    libutilscallstack \
+    libdexfile
