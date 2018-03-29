@@ -720,10 +720,20 @@ on property:sys.shutdown.requested=*
     stop vendor.ims_rtp_daemon
 
 service vendor.ppd /vendor/bin/mm-pp-daemon
-    class hal
+    class late_start
     user system
     socket pps stream 0660 system system
     group system graphics
+    disabled
+
+on property:init.svc.vendor.hwcomposer-2-1=stopped
+    stop vendor.ppd
+
+on property:init.svc.vendor.hwcomposer-2-1=running
+    start vendor.ppd
+
+on property:init.svc.vendor.hwcomposer-2-1=restarting
+    stop vendor.ppd
 
 service vendor.wcnss-service /vendor/bin/wcnss_service
     class main
