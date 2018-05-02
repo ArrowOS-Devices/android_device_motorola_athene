@@ -182,9 +182,6 @@ endif
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
-# CPU
-ENABLE_SCHED_BOOST := true
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
