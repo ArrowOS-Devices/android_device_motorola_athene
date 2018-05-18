@@ -178,10 +178,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keystore.msm8952
 
-# LiveDisplay native
-PRODUCT_PACKAGES += \
-    libjni_livedisplay
-
 # OEM
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/vhw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vhw.xml
