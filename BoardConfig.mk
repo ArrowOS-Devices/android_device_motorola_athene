@@ -245,6 +245,9 @@ VENDOR_SECURITY_PATCH := 2016-10-01
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/vendor/sepolicy
 
+# Thermal
+USE_DEVICE_SPECIFIC_THERMAL := true
+
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
