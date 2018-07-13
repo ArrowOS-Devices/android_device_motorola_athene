@@ -166,7 +166,7 @@ on property:init.svc.recovery=running
 
 on property:dev.bootcomplete=1
     trigger enable-low-power
-    write /sys/block/dm-0/queue/read_ahead_kb 512
+    write /sys/block/dm-0/queue/read_ahead_kb 128
     setprop sys.io.scheduler "cfq"
 
 on property:sys.boot_completed=1
