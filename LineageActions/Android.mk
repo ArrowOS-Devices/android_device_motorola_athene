@@ -9,6 +9,7 @@ LOCAL_PACKAGE_NAME := LineageActions
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_USE_AAPT2 := true
+LOCAL_SDK_VERSION := current
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-support-v7-appcompat \
