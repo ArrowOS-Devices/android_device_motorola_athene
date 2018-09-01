@@ -20,8 +20,8 @@ BOARD_VENDOR := motorola-qcom
 
 # AIDs and CAPS
 TARGET_FS_CONFIG_GEN := \
-    $(DEVICE_PATH)/fs_config/mot_aids.txt \
-    $(DEVICE_PATH)/fs_config/file_caps.txt
+    $(DEVICE_PATH)/configs/fs_config/mot_aids.txt \
+    $(DEVICE_PATH)/configs/fs_config/file_caps.txt
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := athene,athene_f,xt1621,xt1622,xt1625,xt1626,xt1640,xt1641,xt1642,xt1643,xt1644
@@ -183,7 +183,7 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 
 # Properties
-TARGET_SYSTEM_PROP += device/motorola/athene/system.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
