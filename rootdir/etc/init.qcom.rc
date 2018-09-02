@@ -752,7 +752,7 @@ service ipacm /system/bin/ipacm
     group net_admin inet
     writepid /dev/cpuset/system-background/tasks
 
-service qti /system/vendor/bin/qti
+service vendor.qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw oem_2950 usb net_admin
@@ -858,7 +858,7 @@ service diag_mdlog_stop /system/bin/diag_mdlog -k
     disabled
     oneshot
 
-service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
+service vendor.qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
     user system
     group system
@@ -983,7 +983,7 @@ service dropboxd /system/bin/dropboxd
     user diag
     group diag
 
-service thermal-com /system/vendor/bin/thermal-engine --minimode
+service vendor.thermal-com /system/vendor/bin/thermal-engine --minimode
     class main
     user root
     disabled
@@ -1057,7 +1057,7 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service ppd /system/vendor/bin/mm-pp-daemon
+service vendor.ppd /system/vendor/bin/mm-pp-daemon
     class late_start
     disabled
     user system
@@ -1065,10 +1065,10 @@ service ppd /system/vendor/bin/mm-pp-daemon
     group system graphics
 
 on property:init.svc.surfaceflinger=stopped
-    stop ppd
+    stop vendor.ppd
 
 on property:init.svc.surfaceflinger=running
-    start ppd
+    start vendor.ppd
 
 service wcnss-service /system/bin/wcnss_service
     class main
@@ -1082,14 +1082,14 @@ service qseecomd /system/bin/qseecomd
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service perfd /system/vendor/bin/perfd
+service vendor.perfd /system/vendor/bin/perfd
    class main
    user root
    socket perfd seqpacket 0666 root system
    disabled
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service vendor.thermal-engine /system/vendor/bin/thermal-engine
     class main
     user root
     socket thermal-send-client stream 0666 system system
@@ -1128,7 +1128,7 @@ on charger
 on moto-charger
     setprop ro.board.platform msm8952
     start charge_only_mode
-    start thermal-com
+    start vendor.thermal-com
 
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
