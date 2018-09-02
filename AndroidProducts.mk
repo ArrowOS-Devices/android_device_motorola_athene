@@ -15,4 +15,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_athene.mk
+    $(LOCAL_DIR)/arrow_athene.mk
