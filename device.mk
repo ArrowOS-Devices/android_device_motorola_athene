@@ -125,9 +125,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.graphics.vulkan.disable=true
  
-# LineageActions
-#PRODUCT_PACKAGES += \
-    #LineageActions
+# MotoActions
+PRODUCT_PACKAGES += \
+    MotoActions
 
 # Display
 PRODUCT_PACKAGES += \
