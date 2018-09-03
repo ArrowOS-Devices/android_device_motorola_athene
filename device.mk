@@ -82,12 +82,6 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinyxml
 
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm8952
@@ -111,8 +105,6 @@ PRODUCT_COPY_FILES +=  \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    camera.device@3.2-impl \
     libbson \
     libshims_camera \
     Camera2
@@ -131,10 +123,6 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.graphics.composer@2.1-impl \
     libdisplayconfig \
     libhwc2on1adapter \
     gralloc.msm8952 \
@@ -148,19 +136,9 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
-
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service_32 \
     fingerprint.msm8952
-
-# Gatekeeper HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
 
 # FM
 PRODUCT_PACKAGES += \
@@ -173,8 +151,7 @@ PRODUCT_PACKAGES += \
     libgnss \
     liblocation_api \
     libloc_api-rpc-qc \
-    gps.default \
-    android.hardware.gnss@1.0-impl-qti \
+    gps.default
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/gps.conf:system/vendor/etc/gps.conf
@@ -191,38 +168,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libshims_ims
 
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
-
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8952
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
  
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
     libbt-vendor 
-
-# Memtrack HAL
-PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl
- 
-# Keymaster HAL
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
-
-# USB HAL
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
  
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
     lights.msm8952
 
 # LiveDisplay native
@@ -291,7 +246,6 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
     power.msm8952
 
 # Ramdisk
@@ -307,10 +261,6 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.ril.sh \
     ueventd.qcom.rc
-
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -342,7 +292,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
     sensorservice_32
 
 # Stlport
@@ -374,7 +323,6 @@ PRODUCT_PACKAGES += \
     WCNSS_wlan_dictionary.dat
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
     libcurl \
     tcpdump \
     wcnss_service
@@ -400,3 +348,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
+# HIDL HALs
+$(call inherit-product, $(LOCAL_PATH)/hidl.mk)
