@@ -150,6 +150,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gatekeeperd_32
 
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/gatekeeperd/gatekeeperd.rc:system/etc/init/gatekeeperd.rc
+
 # GPS
 PRODUCT_PACKAGES += \
     libgps.utils \
