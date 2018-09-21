@@ -87,13 +87,13 @@ void vendor_load_properties()
 
     if (device_boot == "athene_13mp") {
         /* Moto G4 (XT162x) */
-        property_override_dual("ro.product.device", "ro.vendor.product.device", "athene");
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "Moto G4");
+        property_override_dual("ro.product.device", "ro.product.vendor.device", "athene");
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "Moto G4");
         property_set("ro.telephony.default_network", "10");
     } else {
         /* Moto G4 Plus (XT164x) */
-        property_override_dual("ro.product.device", "ro.vendor.product.device", "athene_f");
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "Moto G4 Plus");
+        property_override_dual("ro.product.device", "ro.product.vendor.device", "athene_f");
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "Moto G4 Plus");
         property_set("ro.telephony.default_network", "10,0");
     }
 
