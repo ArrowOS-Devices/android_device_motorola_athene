@@ -227,7 +227,6 @@ TARGET_USE_SDCLANG := true
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
-SELINUX_IGNORE_NEVERALLOWS := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
