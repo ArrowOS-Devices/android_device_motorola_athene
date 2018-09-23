@@ -25,11 +25,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Firmware directory path
-# Below macro will be read by uevent and path will
-# be added to search path for firmware loading
-firmware_directories /mnt/vendor/firmware/image/
-
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     oem_2950
 /dev/ttydiag0             0660   system     oem_2950
