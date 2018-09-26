@@ -63,6 +63,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/com.motorola.camera.xml:system/etc/permissions/com.motorola.camera.xml \
     $(LOCAL_PATH)/configs/camera/com.motorola.cameraone.xml:system/etc/permissions/com.motorola.cameraone.xml
 
+# External camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/camera/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 
