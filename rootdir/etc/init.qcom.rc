@@ -306,9 +306,6 @@ on boot
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
 on fs
-    # Start HW service manager early
-    start hwservicemanager
-
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
     
@@ -364,11 +361,6 @@ on post-fs
     chmod 0600 /persist/whisper/whisper_only/vector0.bin
 
 on late-fs
-    # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
-    # In such case, init won't responce the property_set from hwservicemanager and then
-    # cause services for bootanim not running.
-    wait_for_prop hwservicemanager.ready true
-
     mount_all fstab.qcom --late
 
 on post-fs-data
