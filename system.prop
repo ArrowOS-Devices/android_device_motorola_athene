@@ -87,6 +87,7 @@ system_init.startsensorservice=0
 
 # Time
 persist.timed.enable=true
+persist.delta_time.enable=true
 
 # CABL
 ro.qualcomm.cabl=0
