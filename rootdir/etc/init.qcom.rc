@@ -33,13 +33,13 @@ on early-init
     chown system system /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
-    mkdir /firmware 0771 system system
-    mkdir /customize 0500 root root
-    mkdir /dsp 0771 media media
-    mkdir /fsg 755 root root
-    mkdir /system 0777 root root
+    # mkdir /firmware 0771 system system
+    # mkdir /customize 0500 root root
+    # mkdir /dsp 0771 media media
+    # mkdir /fsg 755 root root
+    # mkdir /system 0777 root root
 
-    symlink /data/vendor/tombstones /tombstones
+    # symlink /data/vendor/tombstones /tombstones
 
 on init
     # Set permissions for persist partition
