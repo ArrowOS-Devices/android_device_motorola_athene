@@ -150,13 +150,6 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    gatekeeperd_32
-
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/gatekeeperd/gatekeeperd.rc:system/etc/init/gatekeeperd.rc
-
 # GPS
 PRODUCT_PACKAGES += \
     libgps.utils \
