@@ -858,7 +858,7 @@ service vendor.qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     group system
 
 # Start Sensor daemon
-service motosh /system/bin/motosh boot
+service vendor.motosh /system/vendor/bin/motosh boot
     class late_start
     user compass
     group compass misc input
