@@ -1070,7 +1070,7 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi radio
     oneshot
 
-service qseecomd /system/bin/qseecomd
+service vendor.qseecomd /system/vendor/bin/qseecomd
     class core
     user root
     group root
