@@ -170,6 +170,9 @@ TARGET_NO_RPC := true
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+# Extended filesystem support
+TARGET_EXFAT_DRIVER := sdfat
+
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
