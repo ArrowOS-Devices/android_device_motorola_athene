@@ -178,10 +178,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keystore.msm8952
  
-# Bluetooth
-PRODUCT_PACKAGES += \
-    libbt-vendor 
- 
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8952
