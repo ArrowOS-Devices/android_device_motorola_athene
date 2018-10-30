@@ -782,6 +782,7 @@ on property:init.svc.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
+    stop vendor.ims_rtp_daemon
 
 service vendor.ppd /vendor/bin/mm-pp-daemon
     class hal
