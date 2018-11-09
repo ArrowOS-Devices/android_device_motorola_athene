@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- DO NOT TRANSLATE Empty summary for dynamic preferences -->
+    <string name="summary_empty" translatable="false"></string>
+
+    <!-- Device specific settings -->
+    <string name="app_name">Moto Settings</string>
+
+    <!-- Thermal category -->
+    <!-- Title -->
+    <string name="category_thermal_title">Thermal</string>
+
+    <!-- Thermal: Turbo Charging switch -->
+    <string name="category_thermal_turbocharging_title">Turbo Charging</string>
+    <string name="category_thermal_turbocharging_summary">Enable or disable turbo charging for QC chargers.</string>
+    <!-- -->
+</resources>
