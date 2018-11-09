@@ -127,6 +127,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     MotoActions
 
+# MotoSettings
+PRODUCT_PACKAGES += \
+    MotoSettings
+
 # Display
 PRODUCT_PACKAGES += \
     libdisplayconfig \
