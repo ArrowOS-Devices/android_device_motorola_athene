@@ -799,10 +799,10 @@ service vendor.loc_launcher /vendor/bin/loc_launcher
     group gps inet net_raw oem_2950 net_admin wifi
     writepid /dev/cpuset/system-background/tasks
 
-on property:hw.fm.init=1
+on property:vendor.hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
-on property:hw.fm.init=0
+on property:vendor.hw.fm.init=0
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
 
 service atfwd /system/bin/ATFWD-daemon
