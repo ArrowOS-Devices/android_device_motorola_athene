@@ -235,6 +235,9 @@ LZMA_RAMDISK_TARGETS := recovery
 # SDClang
 TARGET_USE_SDCLANG := true
 
+# Security patch level
+VENDOR_SECURITY_PATCH := 2016-10-01
+
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/vendor/sepolicy
