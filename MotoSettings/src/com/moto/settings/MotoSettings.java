@@ -25,61 +25,47 @@ import android.provider.Settings;
 
 import android.util.Log;
 
+import com.moto.settings.utils.FileUtils;
 import com.moto.settings.Constants;
-
-import java.io.IOException;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 
 public class MotoSettings {
     private static final String TAG = "MotoSettings";
 
-    private static final String SETTING_CHARGER_FASTCHARGER = "charger_fastcharger";
+    private static final String SETTING_CHARGER_FASTCHARGER = "thermal_turbocharging";
 
     private final Context mContext;
 
-    private boolean mCharger_FastCharger;
-
     public MotoSettings(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        loadPreferences(sharedPrefs);
+
+        loadPreferences(context, sharedPrefs);
+
         sharedPrefs.registerOnSharedPreferenceChangeListener(mPrefListener);
+
         mContext = context;
     }
 
-    public boolean Charger_IsFastChargerEnabled() {
-        return mCharger_FastCharger;
-    }
+    private void loadPreferences(Context context, SharedPreferences sharedPreferences) {
+        // Restore nodes to saved preference values
+        for (String pref : Constants.sNodesTable) {
+            String value = Constants.isPreferenceEnabled(context, pref) ? "1" : "0";
+            String node = Constants.sBooleanNodePreferenceMap.get(pref);
 
-    private void loadPreferences(SharedPreferences sharedPreferences) {
-        mCharger_FastCharger = sharedPreferences.getBoolean(SETTING_CHARGER_FASTCHARGER, true);
-
-        int iFastCharging = mCharger_FastCharger ? 1 : 0;
-        WriteIntFile(Constants.NODE_THERMAL_TURBOCHARGING, iFastCharging);
+            if (!FileUtils.writeLine(node, value)) {
+                Log.w(TAG, "Write to node " + node +
+                       " failed while restoring saved preference values");
+            }
+            else {
+                Log.i(TAG, "Writing "+value+" > "+node);
+            }
+        }
     }
 
     private SharedPreferences.OnSharedPreferenceChangeListener mPrefListener =
             new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            boolean updated = true;
-
-            if (SETTING_CHARGER_FASTCHARGER.equals(key)) {
-                mCharger_FastCharger = sharedPreferences.getBoolean(SETTING_CHARGER_FASTCHARGER, true);
-            } else {
-                updated = false;
-            }
-        }
-    };
-
-    private void WriteIntFile(String fileName, Integer value) {
-        try {
-            FileOutputStream out = mContext.openFileOutput(fileName, Context.MODE_PRIVATE);
-            OutputStreamWriter writer = new OutputStreamWriter(out);
-            writer.write(value);
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            loadPreferences(mContext, sharedPreferences);
         }
     };
 }

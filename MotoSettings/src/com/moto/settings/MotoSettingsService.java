@@ -33,11 +33,13 @@ public class MotoSettingsService extends IntentService {
     private final Context mContext;
 
     public MotoSettingsService(Context context) {
-        super("MotoSettingservice");
+        super("MotoSettingsService");
         
         mContext = context;
 
         Log.d(TAG, "Starting");
+
+        MotoSettings motoSettings = new MotoSettings(context);
     }
 
     @Override

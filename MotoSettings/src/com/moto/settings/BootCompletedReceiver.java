@@ -37,17 +37,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, Intent intent) {
         Log.i(TAG, "Booting");
 
-        // Restore nodes to saved preference values
-        for (String pref : Constants.sNodesTable) {
-             String value = Constants.isPreferenceEnabled(context, pref) ? "1" : "0";
-             String node = Constants.sBooleanNodePreferenceMap.get(pref);
-
-             if (!FileUtils.writeLine(node, value)) {
-                 Log.w(TAG, "Write to node " + node +
-                       " failed while restoring saved preference values");
-             }
-        }
-
         context.startService(new Intent(context, ServiceWrapper.class));
     }
 

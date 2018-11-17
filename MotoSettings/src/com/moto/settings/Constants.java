@@ -27,7 +27,7 @@ import android.preference.PreferenceManager;
 public class Constants {
 
     // IDs
-    public static final String ID_THERMAL_TURBOCHARGING = "turbo_charging";
+    public static final String ID_THERMAL_TURBOCHARGING = "thermal_turbocharging";
 
     // Nodes
     public static final String NODE_THERMAL_TURBOCHARGING = "/sys/kernel/smbchg_control/turbo_charging";

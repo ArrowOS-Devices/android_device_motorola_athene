@@ -23,7 +23,7 @@
         android:title="@string/category_thermal_title">
 
         <SwitchPreference
-            android:key="thermal_turbocharging_switch"
+            android:key="thermal_turbocharging"
             android:defaultValue="true"
             android:title="@string/category_thermal_turbocharging_title"
             android:summary="@string/category_thermal_turbocharging_summary" />
