@@ -265,9 +265,6 @@ PRODUCT_PACKAGES += \
     init.qcom.ril.sh \
     ueventd.qcom.rc
 
-PRODUCT_PACKAGES += \
-	init.safailnet.rc
-
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
