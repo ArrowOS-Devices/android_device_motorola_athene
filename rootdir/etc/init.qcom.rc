@@ -566,9 +566,11 @@ on post-fs-data
     # Sensor Hub calibration data directory
     mkdir /data/misc/sensorhub 0770 system compass
 
-    # Required by FingerPrint Cards (FPC) via init so we don't need to give qseecomd or fingerprintd permissions to create them
-    mkdir /data/fpc 0700 system system
-    mkdir /data/.fps 0770 system fingerp
+    #Create directories for Fingerprint
+    mkdir /data/vendor/misc/qti_fp 0770 system system
+    mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
+    mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
+    mkdir /data/vendor/misc/qti_fp/database 0770 system system
 
     # Imager tuning data for camera subsystem
     mkdir /data/misc/imager 0770 camera camera
@@ -968,16 +970,6 @@ on property:sys.wifi.tethering=true
     write /sys/class/net/wlan0/queues/rx-1/rps_cpus ${sys.usb.rps_mask}
     write /sys/class/net/wlan0/queues/rx-2/rps_cpus ${sys.usb.rps_mask}
     write /sys/class/net/wlan0/queues/rx-3/rps_cpus ${sys.usb.rps_mask}
-
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group input
-    writepid /dev/cpuset/system-background/tasks
-    disabled
-
-on property:ro.hw.fps=true
-    start fingerprintd
 
 service setup_shutdown /system/bin/setup_shutdown.sh
    class main
