@@ -891,7 +891,7 @@ on property:hw.touch.status="dead"
 on property:hw.touch.status="ready"
     # start touch-ready-sh
 
-service charge_only_mode /system/bin/charge_only_mode
+service vendor.charge_only_mode /vendor/bin/charge_only_mode
     user root
     group graphics system input
     disabled
@@ -1091,7 +1091,7 @@ on charger
 
 on moto-charger
     setprop ro.board.platform msm8952
-    start charge_only_mode
+    start vendor.charge_only_mode
     start vendor.thermal-com
 
 on property:sys.boot_completed=1
