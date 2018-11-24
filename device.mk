@@ -142,10 +142,6 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprint.msm8952
-
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
