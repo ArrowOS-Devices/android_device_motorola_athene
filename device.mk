@@ -178,10 +178,6 @@ PRODUCT_PACKAGES += \
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8952
- 
-# Lights
-PRODUCT_PACKAGES += \
-    lights.msm8952
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
