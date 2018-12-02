@@ -28,9 +28,11 @@ public class Constants {
 
     // IDs
     public static final String ID_THERMAL_TURBOCHARGING = "thermal_turbocharging";
+    public static final String ID_DISPLAY_BURNIN = "display_burnin";
 
     // Nodes
     public static final String NODE_THERMAL_TURBOCHARGING = "/sys/kernel/smbchg_control/turbo_charging";
+    public static final String NODE_DISPLAY_KCAL = "/sys/devices/platform/kcal_ctrl.0/kcal";
 
     // Holds <preference_key> -> <proc_node> mapping
     public static final Map<String, String> sBooleanNodePreferenceMap = new HashMap<>();
@@ -40,12 +42,14 @@ public class Constants {
 
     public static final String[] sNodesTable = {
         ID_THERMAL_TURBOCHARGING,
+        ID_DISPLAY_BURNIN,
     };
 
     static {
         sBooleanNodePreferenceMap.put(ID_THERMAL_TURBOCHARGING, NODE_THERMAL_TURBOCHARGING);
 
         sNodeDefaultMap.put(ID_THERMAL_TURBOCHARGING, true); //Set TurboCharging to 'true' as default
+        sNodeDefaultMap.put(ID_DISPLAY_BURNIN, false); //Set BurnIn workaround to 'false' as default
     }
 
     public static boolean isPreferenceEnabled(Context context, String key) {

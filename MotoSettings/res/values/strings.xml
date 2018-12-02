@@ -14,4 +14,13 @@
     <string name="category_thermal_turbocharging_title">Turbo Charging</string>
     <string name="category_thermal_turbocharging_summary">Enable or disable turbo charging for QC chargers.</string>
     <!-- -->
+
+    <!-- Display category -->
+    <!-- Title -->
+    <string name="category_display_title">Display</string>
+
+    <!-- Display: BurnIn workaround switch -->
+    <string name="category_display_burnin_title">Burn-in workaround</string>
+    <string name="category_display_burnin_summary">Enable or disable workaround for panels with burn-in.</string>
+    <!-- -->
 </resources>

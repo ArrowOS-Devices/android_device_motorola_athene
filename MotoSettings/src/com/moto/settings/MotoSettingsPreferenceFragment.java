@@ -42,6 +42,7 @@ public class MotoSettingsPreferenceFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.thermal);
+        addPreferencesFromResource(R.xml.display);
     }
 
     @Override
@@ -68,11 +69,13 @@ public class MotoSettingsPreferenceFragment extends PreferenceFragment {
             });
 
             String node = Constants.sBooleanNodePreferenceMap.get(pref);
-            if (new File(node).exists()) {
-                String curNodeValue = FileUtils.readOneLine(node);
-                b.setChecked(curNodeValue.equals("1"));
-            } else {
-                b.setEnabled(false);
+            if (!node.isEmpty()) {
+                if (new File(node).exists()) {
+                    String curNodeValue = FileUtils.readOneLine(node);
+                    b.setChecked(curNodeValue.equals("1"));
+                } else {
+                    b.setEnabled(false);
+                }
             }
         }
     }
@@ -86,8 +89,10 @@ public class MotoSettingsPreferenceFragment extends PreferenceFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             getActivity().onBackPressed();
+
             return true;
         }
+
         return false;
     }
 }

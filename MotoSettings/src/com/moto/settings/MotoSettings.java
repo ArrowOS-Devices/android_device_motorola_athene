@@ -23,10 +23,13 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 
+import java.io.File;
+
 import android.util.Log;
 
 import com.moto.settings.utils.FileUtils;
 import com.moto.settings.Constants;
+import com.moto.settings.DisplayColors;
 
 public class MotoSettings {
     private static final String TAG = "MotoSettings";
@@ -35,14 +38,18 @@ public class MotoSettings {
 
     private final Context mContext;
 
+    public final DisplayColors mDisplayColors;
+
     public MotoSettings(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        mContext = context;
+
+        mDisplayColors = new DisplayColors(context);
 
         loadPreferences(context, sharedPrefs);
 
         sharedPrefs.registerOnSharedPreferenceChangeListener(mPrefListener);
-
-        mContext = context;
     }
 
     private void loadPreferences(Context context, SharedPreferences sharedPreferences) {
@@ -51,14 +58,20 @@ public class MotoSettings {
             String value = Constants.isPreferenceEnabled(context, pref) ? "1" : "0";
             String node = Constants.sBooleanNodePreferenceMap.get(pref);
 
-            if (!FileUtils.writeLine(node, value)) {
-                Log.w(TAG, "Write to node " + node +
-                       " failed while restoring saved preference values");
-            }
-            else {
-                Log.i(TAG, "Writing "+value+" > "+node);
+            if (node == null) continue;
+
+            if (new File(node).exists()) {
+                if (!FileUtils.writeLine(node, value)) {
+                    Log.w(TAG, "Write to node " + node +
+                           " failed while restoring saved preference values");
+                }
+                else {
+                    Log.i(TAG, "Writing "+value+" > "+node);
+                }
             }
         }
+
+        mDisplayColors.loadPreferences();
     }
 
     private SharedPreferences.OnSharedPreferenceChangeListener mPrefListener =
