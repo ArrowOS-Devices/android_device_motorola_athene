@@ -164,7 +164,7 @@ on enable-low-power
 
     # Set perfd properties
     rm /data/system/perfd/default_values
-    start perfd
+    start vendor.perfd
 
 on property:init.svc.recovery=running
     trigger enable-low-power
