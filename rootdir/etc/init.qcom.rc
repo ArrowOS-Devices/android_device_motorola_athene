@@ -999,7 +999,7 @@ service adsprpcd /system/bin/adsprpcd
     user media
     group media
 
-service per_mgr /system/bin/pm-service
+service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
     group system net_raw
