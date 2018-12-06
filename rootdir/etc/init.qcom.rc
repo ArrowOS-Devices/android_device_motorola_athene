@@ -1049,7 +1049,7 @@ service vendor.perfd /vendor/bin/perfd
    disabled
    writepid /dev/cpuset/system-background/tasks
 
-service vendor.thermal-engine /vendor/bin/thermal-engine
+service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-athene.conf
     class main
     user root
     socket thermal-send-client stream 0666 system system
