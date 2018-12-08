@@ -189,9 +189,6 @@ DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
-# Product
-PRODUCT_SHIPPING_API_LEVEL := 23
-
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 
