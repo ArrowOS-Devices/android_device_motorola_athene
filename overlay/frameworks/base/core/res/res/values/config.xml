@@ -911,6 +911,8 @@
        <item>"/system/framework/boot.vdex"</item>
        <item>"/system/framework/arm64/boot-core-libart.oat"</item>
        <item>"/system/framework/boot-core-libart.vdex"</item>
+       <item>"/system/framework/boot-QPerformance.vdex"</item>
+       <item>"/system/framework/boot-UxPerformance.vdex"</item>
    </string-array>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
