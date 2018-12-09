@@ -22,6 +22,7 @@
 #include <dirent.h>
 #include <sys/select.h>
 #include <string.h>
+#include <cstdio>
 
 #include <log/log.h>
 #include <android-base/macros.h>
