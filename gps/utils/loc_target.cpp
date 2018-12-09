@@ -35,6 +35,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <cutils/properties.h>
+#include <unistd.h>
 #include "loc_target.h"
 #include "loc_log.h"
 #include <platform_lib_includes.h>

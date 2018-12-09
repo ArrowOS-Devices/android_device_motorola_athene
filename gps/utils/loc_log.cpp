@@ -32,6 +32,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
+#include <unistd.h>
+#include <time.h>
 #include "loc_log.h"
 #include "msg_q.h"
 #include <platform_lib_includes.h>
