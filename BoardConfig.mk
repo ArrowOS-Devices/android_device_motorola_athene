@@ -190,7 +190,7 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 
 # Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -244,6 +244,9 @@ VENDOR_SECURITY_PATCH := 2016-10-01
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/vendor/sepolicy
+
+# Treble
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
