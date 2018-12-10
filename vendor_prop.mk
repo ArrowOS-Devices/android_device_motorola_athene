@@ -156,10 +156,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
+	vendor.enable_prefetch=1 \
+	vendor.iop.enable_uxe=1 \
+	vendor.iop.enable_prefetch_ofr=1 \
+	vendor.perf.iop_v3.enable=1 \
+	persist.vendor.qti.games.gt.prof=1 \
 	ro.vendor.gt_library=libqti-gt.so \
 	ro.vendor.at_library=libqti-at.so \
-	ro.vendor.core_ctl_min_cpu=2 \
-	ro.vendor.core_ctl_max_cpu=4 \
 	ro.vendor.extension_library=libqti-perfd-client.so \
 	sys.games.gt.prof=0 \
 	sched.colocate.enable=1
