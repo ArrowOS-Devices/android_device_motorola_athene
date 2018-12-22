@@ -165,7 +165,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.at_library=libqti-at.so \
 	ro.vendor.extension_library=libqti-perfd-client.so \
 	sys.games.gt.prof=0 \
-	sched.colocate.enable=1
+	sched.colocate.enable=1 \
+	ro.vendor.qti.am.reschedule_service=true \
+	ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Play Store
 PRODUCT_PROPERTY_OVERRIDES += \
