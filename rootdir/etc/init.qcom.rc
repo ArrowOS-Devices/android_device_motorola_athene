@@ -193,9 +193,12 @@ on boot
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
     # FPC home button permissions
-    chown system system /sys/homebutton/enable
-    chown system system /sys/homebutton/enable_wakeup
-    chown system system /sys/homebutton/enable_off
+    chown system system /sys/homebutton/key
+    chown system system /sys/homebutton/vib_strength
+
+    chown system system /sys/homebutton/home
+    chown system system /sys/homebutton/wakeup
+    chown system system /sys/homebutton/sleep
 
     # SMBChg control
     chown system system /sys/kernel/smbchg_control/turbo_charging

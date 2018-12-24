@@ -36,13 +36,13 @@ public class Constants {
     public static final String FP_HOME_SLEEP_KEY = "fp_home_sleep";
 
     // Swap nodes
-    public static final String FP_HOME_NODE = "/sys/homebutton/enable";
+    public static final String FP_HOME_NODE = "/sys/homebutton/home";
 
     // Wakeup node
-    public static final String FP_HOME_WAKEUP_NODE = "/sys/homebutton/enable_wakeup";
+    public static final String FP_HOME_WAKEUP_NODE = "/sys/homebutton/wakeup";
 
     // Sleep nodes
-    public static final String FP_HOME_SLEEP_NODE = "/sys/homebutton/enable_off";
+    public static final String FP_HOME_SLEEP_NODE = "/sys/homebutton/sleep";
 
     // Holds <preference_key> -> <proc_node> mapping
     public static final Map<String, String> sBooleanNodePreferenceMap = new HashMap<>();
