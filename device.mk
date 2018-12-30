@@ -277,10 +277,7 @@ PRODUCT_PACKAGES += \
     libsensorhub \
     motosh \
     sensorhub.msm8952 \
-    sensors.msm8952 \
-    sensors.rp \
-    sensors.tof \
-    sensors.tof.vl53l0
+    sensors.msm8952
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
