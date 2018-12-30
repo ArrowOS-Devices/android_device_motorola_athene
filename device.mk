@@ -171,6 +171,7 @@ PRODUCT_COPY_FILES += \
 # IMS
 PRODUCT_PACKAGES += \
     qti-telephony-common \
+    ims-ext-common \
     libshims_ims
 
 # Keystore
