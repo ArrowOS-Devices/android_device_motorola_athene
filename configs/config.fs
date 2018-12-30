@@ -22,19 +22,19 @@ value:2951
 [AID_VENDOR_RFS_SHARED]
 value:2952
 
-[system/bin/imsdatadaemon]
+[vendor/bin/imsdatadaemon]
 user: AID_SYSTEM
 group: AID_SYSTEM
 mode: 0755
 caps: NET_BIND_SERVICE
 
-[system/bin/ims_rtp_daemon]
+[vendor/bin/ims_rtp_daemon]
 user: AID_SYSTEM
 group: AID_RADIO
 mode: 0755
 caps: NET_BIND_SERVICE
 
-[system/bin/pm-service]
+[vendor/bin/pm-service]
 user: AID_SYSTEM
 group: AID_SYSTEM
 mode: 0755
