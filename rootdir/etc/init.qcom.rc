@@ -825,13 +825,6 @@ service vendor.qseecomd /vendor/bin/qseecomd
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.perfd /vendor/bin/perfd
-   class main
-   user root
-   socket perfd seqpacket 0666 root system
-   disabled
-   writepid /dev/cpuset/system-background/tasks
-
 service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-athene.conf
     class main
     user root
