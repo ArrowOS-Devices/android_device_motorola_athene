@@ -179,8 +179,8 @@ ENABLE_SCHED_BOOST := true
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Manifest
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
-DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
