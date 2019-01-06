@@ -132,6 +132,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libdisplayconfig \
     libhwc2on1adapter \
+    libqdMetaData.system \
     gralloc.msm8952 \
     copybit.msm8952 \
     hwcomposer.msm8952 \
