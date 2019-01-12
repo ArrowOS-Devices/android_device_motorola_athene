@@ -143,6 +143,16 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/modes
     chmod 0664 /sys/class/graphics/fb0/mode
 
+    # since we have the display config in vendor, we must copy it into /data/misc/display
+    # or /persist/display and avoid any hex editing
+    copy /vendor/etc/pp_calib_data_mipi_mot_cmd_boe_1080p_546_v0.xml /data/misc/display/pp_calib_data_mipi_mot_cmd_boe_1080p_546_v0.xml
+    chown system graphics /data/misc/display/pp_calib_data_mipi_mot_cmd_boe_1080p_546_v0.xml
+    chmod 0660 /data/misc/display/pp_calib_data_mipi_mot_cmd_boe_1080p_546_v0.xml
+
+    copy /vendor/etc/pp_calib_data_mipi_mot_cmd_lgd_1080p_546_v0.xml /data/misc/display/pp_calib_data_mipi_mot_cmd_lgd_1080p_546_v0.xml
+    chown system graphics /data/misc/display/pp_calib_data_mipi_mot_cmd_lgd_1080p_546_v0.xml
+    chmod 0660 /data/misc/display/pp_calib_data_mipi_mot_cmd_lgd_1080p_546_v0.xml
+
     # Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
