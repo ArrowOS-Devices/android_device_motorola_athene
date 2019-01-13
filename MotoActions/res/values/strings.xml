@@ -16,6 +16,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="moto_actions_title">Moto Actions</string>
+
     <!-- DO NOT TRANSLATE Empty summary for dynamic preferences -->
     <string name="summary_empty" translatable="false"></string>
 
@@ -30,6 +32,7 @@
 
     <!-- Device gestures panel -->
     <string name="screen_gestures_panel_title">Gestures</string>
+    <string name="screen_gestures_panel_summary">Manage device gestures</string>
 
     <!-- Touchscreen gesture haptic feedback -->
     <string name="touchscreen_gesture_extras">Extras</string>
