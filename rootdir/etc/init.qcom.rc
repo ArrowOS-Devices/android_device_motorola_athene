@@ -127,7 +127,7 @@ on boot
     chmod 0660 /data/vendor/radio/db_check_done
 
     # Create directory for modem config
-    mkdir /data/misc/radio/modem_config 0770 radio radio
+    mkdir /data/vendor/modem_config 0770 radio radio
 
     # Set graphic node permissions
     chown system graphics /sys/class/graphics/fb0/mdp/bw_mode_bitmap
@@ -398,9 +398,9 @@ on post-fs-data
 
     # Create the directories used by CnE subsystem
     mkdir /data/vendor/connectivity 0771 system system
-    chown system system /data/vendor/connectivity
+    chown radio radio /data/vendor/connectivity
     mkdir /data/vendor/connectivity/wqeclient 0771 system system
-    chown system system /data/vendor/connectivity/wqeclient
+    chown radio radio /data/vendor/connectivity/wqeclient
 
     # Create directory used by audio subsystem
     mkdir /data/vendor/misc/audio 0770 audio audio
@@ -487,7 +487,7 @@ on post-fs-data
     mkdir /data/local/dbvc 0750 oem_5004 shell
 
     # Create directory for cutback
-    mkdir /data/misc/cutback 0770 radio wifi
+    mkdir /data/vendor/cutback 0770 radio wifi
 
     # Create directory for fm_radio
     mkdir /data/misc/fm_radio 0770 system system

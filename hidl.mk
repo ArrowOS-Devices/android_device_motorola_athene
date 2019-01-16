@@ -80,7 +80,8 @@ PRODUCT_PACKAGES += \
 
 #RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.0
+    android.hardware.radio@1.0 \
+    android.hardware.radio.config@1.0
 
 # Sensors
 PRODUCT_PACKAGES += \
