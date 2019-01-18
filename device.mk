@@ -292,9 +292,6 @@ PRODUCT_PACKAGES += \
     libstlport
 
 # Thermal
-PRODUCT_PACKAGES += \
-    thermal.msm8952
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-athene.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-athene.conf
 
