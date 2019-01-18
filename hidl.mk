@@ -45,6 +45,11 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.1-impl-qti \
     android.hardware.gnss@1.1-service-qti
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
+
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
