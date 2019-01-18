@@ -179,9 +179,6 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
-# Power
-TARGET_POWERHAL_VARIANT := qcom
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
