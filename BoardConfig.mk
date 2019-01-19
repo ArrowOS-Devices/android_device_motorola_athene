@@ -245,6 +245,12 @@ VENDOR_SECURITY_PATCH := 2016-10-01
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/vendor/sepolicy
 
+# Power
+TARGET_CLUSTER_SWITCHED_PLACES := true
+TARGET_WLAN_POWER_STAT := true
+TARGET_USES_INTERACTION_BOOST := true
+TARGET_RPM_SYSTEM_STAT := /d/rpm_stats
+
 # Thermal
 USE_DEVICE_SPECIFIC_THERMAL := true
 
