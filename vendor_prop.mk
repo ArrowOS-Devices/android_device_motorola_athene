@@ -106,7 +106,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
-	drm.service.enabled=true
+	drm.service.enabled=true \
+	ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # FM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -126,7 +127,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # HWUI
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.hwui.texture_cache_size=40
+	ro.hwui.texture_cache_size=72 \
+	ro.hwui.layer_cache_size=48 \
+	ro.hwui.r_buffer_cache_size=8 \
+	ro.hwui.path_cache_size=32 \
+	ro.hwui.gradient_cache_size=1 \
+	ro.hwui.drop_shadow_cache_size=6 \
+	ro.hwui.texture_cache_flushrate=0.4 \
+	ro.hwui.text_small_cache_width=1024 \
+	ro.hwui.text_small_cache_height=1024 \
+	ro.hwui.text_large_cache_width=2048 \
+	ro.hwui.text_large_cache_height=2048
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -161,10 +172,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.gt_library=libqti-gt.so \
 	ro.vendor.at_library=libqti-at.so \
-	sys.games.gt.prof=0 \
 	ro.vendor.core_ctl_min_cpu=2 \
 	ro.vendor.core_ctl_max_cpu=4 \
-	ro.vendor.extension_library=libqti-perfd-client.so
+	ro.vendor.extension_library=libqti-perfd-client.so \
+	sys.games.gt.prof=0 \
+	sched.colocate.enable=1
 
 # Play Store
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -216,7 +228,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.ims.rcs=false \
 	persist.ims.disableADBLogs=2 \
 	persist.ims.disableDebugLogs=0 \
-	persist.ims.disableQXDMLogs=0 \
+	persist.ims.disableQXDMLogs=1 \
 	persist.ims.disableIMSLogs=0 \
 	persist.vendor.radio.sw_mbn_update=0 \
 	persist.vendor.radio.custom_ecc=1 \
@@ -271,9 +283,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.ssr.restart_level=ALL_ENABLE
 
-# Time
+#Trim properties
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.timed.enable=true
+	ro.vendor.qti.sys.fw.use_trim_settings=true \
+	ro.vendor.qti.sys.fw.empty_app_percent=50 \
+	ro.vendor.qti.sys.fw.trim_empty_percent=100 \
+	ro.vendor.qti.sys.fw.trim_cache_percent=100 \
+	ro.vendor.qti.sys.fw.trim_enable_memory=2147483648
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -295,13 +311,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.net.doxlat=true
 
+# ZRAM
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.vendor.qti.config.zram=true
+
 #
 # OTHER
 #
-
-# Enable delay service restart
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.am.reschedule_service=true
 
 # Set max background services
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -311,14 +327,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sys.fw.bservice_enable=true
 
+# Cutoff voltage (mV)
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.cutoff_voltage_mv=3200
+
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.build.version.qcom=LA.BR.1.3.3-02720-8976.0 \
+	ro.build.version.qcom=LA.BR.1.3.7-04410-8976.0 \
 	ro.mot.build.customerid=retail \
-	ro.mot.build.version.sdk_int=24 \
-	ro.mot.build.product.increment=24 \
-	ro.mot.build.version.release=24.24 \
+	ro.mot.build.version.sdk_int=28 \
+	ro.mot.build.product.increment=11 \
+	ro.mot.build.version.release=28.11 \
 	ro.mot.ignore_csim_appid=true \
-	ro.cutoff_voltage_mv=3200
+	persist.mot.gps.smart_battery=1
