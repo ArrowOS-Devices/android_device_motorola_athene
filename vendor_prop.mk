@@ -279,10 +279,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.data.mode=concurrent \
 	persist.data.iwlan.enable=true
 
-# SSR
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.ssr.restart_level=ALL_ENABLE
-
 #Trim properties
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.qti.sys.fw.use_trim_settings=true \
