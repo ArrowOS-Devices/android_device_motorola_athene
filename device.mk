@@ -280,6 +280,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     SecureElement
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/libese-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libese-nxp.conf
+
 # Sensors
 PRODUCT_PACKAGES += \
     libsensorhub \
