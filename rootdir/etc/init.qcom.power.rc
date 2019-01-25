@@ -157,7 +157,7 @@ on enable-low-power
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
-    # Set idle GPU to 192 MHz
+    # Set idle GPU to 19.2 MHz
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
 
     # Set perfd properties
