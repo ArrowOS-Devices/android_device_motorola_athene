@@ -89,9 +89,14 @@
       "Path": "/sys/class/devfreq/soc:qcom,gpubw/min_freq",
       "Values": [
         "7031",
+        "6152",
+        "5712",
+        "5346",
         "3955",
         "2929",
+        "1977",
         "1525",
+        "146",
         "0"
       ],
       "ResetOnInit": true
@@ -100,22 +105,15 @@
       "Name": "CPUBWMinFreq",
       "Path": "/sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq",
       "Values": [
-        "0",
-        "1525",
-        "2929",
+        "7031",
+        "6152",
+        "5712",
+        "5346",
         "3955",
-        "7031"
+        "2929",
+        "1525"
       ],
       "ResetOnInit": true
-    },
-    {
-      "Name": "PMQoSCpuDmaLatency",
-      "Path": "/dev/cpu_dma_latency",
-      "Values": [
-        "44",
-        "100"
-      ],
-      "HoldFd": true
     }
   ],
   "Actions": [
@@ -175,18 +173,6 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "PMQoSCpuDmaLatency",
-      "ValueIndex": 0,
-      "Duration": 5000
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUBWHistMemory",
-      "ValueIndex": 0,
-      "Duration": 5000
-    },
-    {
-      "PowerHint": "LAUNCH",
       "Node": "CPUBWMinFreq",
       "ValueIndex": 0,
       "Duration": 5000
@@ -204,12 +190,6 @@
       "Duration": 1000
     },
     {
-      "PowerHint": "CAMERA_LAUNCH",
-      "Node": "PMQoSCpuDmaLatency",
-      "ValueIndex": 0,
-      "Duration": 1000
-    },
-    {
       "PowerHint": "CAMERA_STREAMING",
       "Node": "CPUBigClusterMinFreq",
       "ValueIndex": 0,
@@ -222,12 +202,6 @@
       "Duration": 1000
     },
     {
-      "PowerHint": "CAMERA_STREAMING",
-      "Node": "PMQoSCpuDmaLatency",
-      "ValueIndex": 0,
-      "Duration": 1000
-    },
-    {
       "PowerHint": "CAMERA_SHOT",
       "Node": "CPUBigClusterMinFreq",
       "ValueIndex": 0,
@@ -236,12 +210,6 @@
     {
       "PowerHint": "CAMERA_SHOT",
       "Node": "CPULittleClusterMinFreq",
-      "ValueIndex": 0,
-      "Duration": 1000
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "PMQoSCpuDmaLatency",
       "ValueIndex": 0,
       "Duration": 1000
     },
@@ -257,17 +225,5 @@
       "ValueIndex": 2,
       "Duration": 2000
     },
-    {
-      "PowerHint": "AUDIO_STREAMING",
-      "Node": "PMQoSCpuDmaLatency",
-      "ValueIndex": 0,
-      "Duration": 2000
-    },
-    {
-      "PowerHint": "AUDIO_LOW_LATENCY",
-      "Node": "PMQoSCpuDmaLatency",
-      "ValueIndex": 0,
-      "Duration": 0
-    }
   ]
 }
