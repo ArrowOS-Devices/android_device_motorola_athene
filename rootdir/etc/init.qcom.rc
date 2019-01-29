@@ -366,10 +366,13 @@ on late-fs
 
 on post-fs-data
     mkdir /data/vendor/tombstones 0771 system system
-    mkdir /data/vendor/tombstones/modem 0771 system system
-    mkdir /data/vendor/tombstones/lpass 0771 system system
-    mkdir /data/vendor/tombstones/wcnss 0771 system system
     mkdir /data/vendor/tombstones/dsps 0771 system system
+    mkdir /data/vendor/tombstones/rfs 0771 system system
+    mkdir /data/vendor/tombstones/rfs/lpass 0771 system system
+    mkdir /data/vendor/tombstones/rfs/modem 0771 system system
+    mkdir /data/vendor/tombstones/rfs/slpi 0771 system system
+    mkdir /data/vendor/tombstones/rfs/tn 0771 system system
+    mkdir /data/vendor/tombstones/wcnss 0771 system system
 
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
