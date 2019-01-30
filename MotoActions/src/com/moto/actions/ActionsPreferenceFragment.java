@@ -82,17 +82,34 @@ public class ActionsPreferenceFragment extends PreferenceFragment {
         for (String pref : Constants.sBooleanNodePreferenceMap.keySet()) {
             SwitchPreference b = (SwitchPreference) findPreference(pref);
             if (b == null) continue;
+
             b.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     String node = Constants.sBooleanNodePreferenceMap.get(preference.getKey());
                     if (!TextUtils.isEmpty(node)) {
                         Boolean value = (Boolean) newValue;
                         FileUtils.writeLine(node, value ? "1" : "0");
+
+                        Boolean valueDisable = (Boolean)(value ? false : true);
+
+                        SwitchPreference prefHome = (SwitchPreference) findPreference(Constants.FP_HOME_KEY);
+                        SwitchPreference prefWakeup = (SwitchPreference) findPreference(Constants.FP_HOME_WAKEUP_KEY);
+                        SwitchPreference prefSleep = (SwitchPreference) findPreference(Constants.FP_HOME_SLEEP_KEY);
+                        if (preference.getKey().equals(Constants.FP_HOME_WAKEUP_KEY) || preference.getKey().equals(Constants.FP_HOME_SLEEP_KEY)) {
+                            prefHome.setEnabled(valueDisable);
+                        }
+
+                        if (preference.getKey().equals(Constants.FP_HOME_KEY)) {
+                           prefWakeup.setEnabled(valueDisable);
+                           prefSleep.setEnabled(valueDisable);
+                        }
+
                         return true;
                     }
                     return false;
                 }
             });
+
             String node = Constants.sBooleanNodePreferenceMap.get(pref);
             if (new File(node).exists()) {
                 String curNodeValue = FileUtils.readOneLine(node);
@@ -114,10 +131,10 @@ public class ActionsPreferenceFragment extends PreferenceFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
-            return true;
-        }
-        return false;
+        if (item.getItemId() != android.R.id.home) return false;
+
+        getActivity().onBackPressed();
+
+        return true;
     }
 }
