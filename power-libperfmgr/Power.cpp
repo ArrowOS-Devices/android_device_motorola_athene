@@ -180,16 +180,6 @@ Return<void> Power::getSubsystemLowPowerStats(getSubsystemLowPowerStats_cb _hidl
 }
 
 bool Power::isSupportedGovernor() {
-    std::string buf;
-    if (android::base::ReadFileToString("/sys/devices/system/cpu/cpu4/cpufreq/scaling_governor", &buf)) {
-        buf = android::base::Trim(buf);
-    }
-
-    if (buf != "schedutil" && buf != "sched" && buf != "interactive") {
-        ALOGE("Governor not supported");
-        return false;
-    }
-
     return true;
 }
 
