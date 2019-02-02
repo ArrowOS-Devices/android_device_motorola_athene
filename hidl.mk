@@ -75,10 +75,6 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service.athene
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.athene-libperfmgr
-
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl

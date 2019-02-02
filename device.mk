@@ -239,8 +239,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfboostsconfig.xml \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/configs/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfboostsconfig.xml
 
 # Qualcomm broadcast whitelist
 PRODUCT_COPY_FILES += \
