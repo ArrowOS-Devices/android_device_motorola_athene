@@ -333,8 +333,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
-    wpa_supplicant_overlay.conf \
-    WCNSS_qcom_cfg.ini
+    wpa_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
     WCNSS_wlan_dictionary.dat
