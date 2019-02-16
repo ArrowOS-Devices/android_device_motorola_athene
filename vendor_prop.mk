@@ -152,6 +152,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.stagefright.enable-fma2dp=true \
 	media.stagefright.enable-scan=true \
 	media.aac_51_output_enabled=true \
+	media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
 	mmp.enable.3g2=true \
 	ro.media.enc.aud.fileformat=qcp \
 	ro.media.enc.aud.codec=qcelp \
