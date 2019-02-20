@@ -576,6 +576,7 @@ on property:ro.bluetooth.ftm_enabled=true
     start ftmd
 
 on property:vold.decrypt=trigger_restart_framework
+    restart vendor.camera-provider-2-4
     start config_bluetooth
     start wcnss-service
 
