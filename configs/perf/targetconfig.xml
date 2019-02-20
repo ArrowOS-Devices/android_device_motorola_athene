@@ -46,7 +46,7 @@
              Target="msm8952"
              NumClusters="2"
              TotalNumCores="8"
-             SocIds="264"
+             SocIds="264,289"
              SynCore="1"
              MinCoreOnline="0"
              GovInstanceType="0"
