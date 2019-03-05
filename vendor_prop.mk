@@ -106,8 +106,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
-	drm.service.enabled=true \
-	ro.frp.pst=/dev/block/bootdevice/by-name/frp
+	drm.service.enabled=true
 
 # FM
 PRODUCT_PROPERTY_OVERRIDES += \
