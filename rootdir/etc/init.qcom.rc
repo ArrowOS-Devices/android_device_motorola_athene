@@ -313,10 +313,6 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
-    # perfd waits until the property is set to 1 and refuses to acquire
-    # locks and process hints until it doesn't exists or it is empty.
-    setprop vendor.post_boot.parsed 1
-
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice

@@ -2,6 +2,14 @@ on early-init
     # Enable sched boost
     write /proc/sys/kernel/sched_boost 1
 
+on late-fs
+    # boot time fs tune
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk0/queue/scheduler cfq
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/nr_requests 256
+
 on boot
     # add a cpuset for the camera daemon
     # we want all the little cores for camera
@@ -69,14 +77,14 @@ on enable-low-power
 
     # enable governor for perf cluster
     write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay "19000 1094400:39000"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay "20000 1094400:30000"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 85
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 80000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1440000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "1 960000:85 1113600:90 1344000:80"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "1 960000:85 1094400:90 1344000:80"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
@@ -85,8 +93,8 @@ on enable-low-power
 
     # enable governor for power cluster
     write /sys/devices/system/cpu/cpu4/online 1
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 39000
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 30000
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 80000
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
@@ -152,6 +160,7 @@ on enable-low-power
     write /sys/module/process_reclaim/parameters/pressure_max 70
     write /sys/module/process_reclaim/parameters/swap_opt_eff 30
 
+    # LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
@@ -159,18 +168,25 @@ on enable-low-power
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
 
     # Set perfd properties
-    rm /data/system/perfd/default_values
+    rm /data/vendor/perfd/default_values
 
 on property:init.svc.recovery=running
     trigger enable-low-power
 
-on property:dev.bootcomplete=1
-    trigger enable-low-power
-    write /sys/block/dm-0/queue/read_ahead_kb 128
-    setprop sys.io.scheduler "cfq"
-
 on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor	interactive
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
+    setprop vendor.post_boot.parsed 1
+
+    # configure i/o scheduler
+    write /sys/block/mmcblk0/queue/iostats 0
     write /sys/block/mmcblk0/queue/scheduler cfq
+    write /sys/block/mmcblk0/queue/read_ahead_kb 128
+    write /sys/block/mmcblk0/queue/nr_requests 128
+
+    # Disable sched boost
     write /proc/sys/kernel/sched_boost 0
+
+    # zram
+    /vendor/bin/mkswap /dev/block/zram0
+    /vendor/bin/swapon /dev/block/zram0 -p 32758
+
+    trigger enable-low-power
