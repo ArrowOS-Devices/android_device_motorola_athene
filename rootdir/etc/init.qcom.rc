@@ -463,7 +463,7 @@ on post-fs-data
     mkdir /data/data/media 0770 media media
 
     # Create folder for mm-qcamera-daemon
-    mkdir /data/camera 0770 media camera
+    mkdir /data/vendor/camera 0770 media camera
 
     # Create PERFD deamon related dirs
     mkdir /data/vendor/perfd 0770 root system
@@ -549,7 +549,7 @@ on post-fs-data
     mkdir /data/vendor/misc/qti_fp/database 0770 system system
 
     # Imager tuning data for camera subsystem
-    mkdir /data/misc/imager 0770 camera camera
+    mkdir /data/vendor/misc/imager 0770 camera camera
 
     setprop vold.post_fs_data_done 1
 
@@ -742,11 +742,10 @@ on property:sys.wifi.tethering=true
     write /sys/class/net/wlan0/queues/rx-3/rps_cpus ${sys.usb.rps_mask}
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
-   class main
-   user camera
-   group camera system inet input graphics
-   writepid /dev/cpuset/system-background/tasks
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
+    class main
+    user camera
+    group camera system inet input graphics
 
 on property:init.svc.media=restarting
     restart qcamerasvr

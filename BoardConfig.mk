@@ -101,10 +101,11 @@ BLUETOOTH_HCI_USE_MCT := true
 # Force camera module to be compiled only in 32-bit mode on 64-bit systems
 # Once camera module can run in the native mode of the system (either
 # 32-bit or 64-bit), the following line should be deleted
+# Override camera daemon to MM SDK, because blobs still mostly boken
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/bin/mm-qcamera-daemon=23
+    /vendor/bin/mm-qcamera-daemon=23
 
 # Display
 BOARD_USES_ADRENO := true
@@ -142,8 +143,7 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/lib-imsvt.so|libshims_ims.so \
-    /system/lib/hw/camera.msm8952.so|libshims_camera.so \
-    /system/lib/libjustshoot.so|libshims_shoot.so
+    /vendor/lib/hw/camera.msm8952.so|libshims_camera.so
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_athene

@@ -62,10 +62,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
 	camera.lowpower.record.enable=1 \
-	camera.display.lmax=1280x720 \
-	camera.display.umax=1920x1080 \
+	persist.vendor.camera.display.umax=1920x1080 \
+	persist.vendor.camera.display.lmax=1280x720 \
 	persist.camera.HAL3.enabled=1 \
-	camera.hal1.packagelist=com.skype.raider
+	persist.camera.gyro.disable=0 \
+	camera.hal1.packagelist=com.skype.raider \
+	media.camera.ts.monotonic=1
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -151,7 +153,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	mm.enable.qcom_parser=135715 \
 	vidc.enc.dcvs.extra-buff-count=2 \
 	vidc.enc.narrow.searchrange=1 \
-	media.camera.ts.monotonic=1 \
 	mm.enable.sec.smoothstreaming=false
 
 # Perf
