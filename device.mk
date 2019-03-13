@@ -119,6 +119,11 @@ PRODUCT_PACKAGES += \
     libshims_camera \
     Snap
 
+# Codec2 modules
+PRODUCT_PACKAGES += \
+    com.android.media.swcodec \
+    libsfplugin_ccodec
+
 # Disable camera Treble path
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_treble=true

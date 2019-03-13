@@ -78,6 +78,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.dpm.feature=0 \
 	persist.vendor.sys.cnd.iwlan=1
 
+# Codec2 switch
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.media.codec2=2
+
 # Coresight
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.debug.coresight.config=stm-events
