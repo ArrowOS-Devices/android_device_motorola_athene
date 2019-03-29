@@ -113,7 +113,7 @@ PRODUCT_PACKAGES += \
     libbson \
     libshims_camera \
     libshims_shoot \
-    Camera2
+    AsusCamera
 
 # Disable camera Treble path
 PRODUCT_PROPERTY_OVERRIDES += \
