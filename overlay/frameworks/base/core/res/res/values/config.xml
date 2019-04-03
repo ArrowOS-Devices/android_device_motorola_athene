@@ -570,9 +570,6 @@
     <!-- Flag specifying whether or not IMS will use the ImsResolver dynamically -->
     <bool name="config_dynamic_bind_ims">true</bool>
 
-    <!-- Device supports Sustained Performance Mode-->
-    <bool name="config_sustainedPerformanceModeSupported">true</bool>
-
     <!-- Whether device has turbo power charging support -->
     <bool name="config_hasTurboPowerCharger">true</bool>
 
