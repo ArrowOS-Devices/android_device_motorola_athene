@@ -251,6 +251,11 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libstagefright_soft_flacdec
 
+# Perf
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
+
 # Qualcomm broadcast whitelist
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-qti.xml \
