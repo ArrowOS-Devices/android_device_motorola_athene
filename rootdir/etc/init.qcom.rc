@@ -578,7 +578,7 @@ on property:ro.bluetooth.ftm_enabled=true
 on property:vold.decrypt=trigger_restart_framework
     restart vendor.camera-provider-2-4
     start config_bluetooth
-    start wcnss-service
+    start vendor.wcnss-service
 
 #services
 service vendor.cnd /vendor/bin/cnd
@@ -791,7 +791,7 @@ service vendor.ppd /vendor/bin/mm-pp-daemon
     socket pps stream 0660 system system
     group system graphics
 
-service wcnss-service /vendor/bin/wcnss_service
+service vendor.wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
