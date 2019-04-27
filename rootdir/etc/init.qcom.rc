@@ -566,18 +566,8 @@ on property:init.svc.wpa_supplicant=stopped
 on property:bluetooth.isEnabled=true
     write /sys/class/bluetooth/hci0/idle_timeout 7000
 
-on property:bluetooth.dun.status=running
-    start bt-dun
-
-on property:bluetooth.dun.status=stopped
-    stop bt-dun
-
-on property:ro.bluetooth.ftm_enabled=true
-    start ftmd
-
 on property:vold.decrypt=trigger_restart_framework
     restart vendor.camera-provider-2-4
-    start config_bluetooth
     start vendor.wcnss-service
 
 #services
