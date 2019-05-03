@@ -263,6 +263,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.data.mode=concurrent \
 	persist.data.iwlan.enable=true
 
+# SurfaceFlinger
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.protected_contents=true
+
 #Trim properties
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.qti.sys.fw.use_trim_settings=true \
