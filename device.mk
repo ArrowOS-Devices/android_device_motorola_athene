@@ -112,7 +112,7 @@ PRODUCT_COPY_FILES +=  \
 PRODUCT_PACKAGES += \
     libbson \
     libshims_camera \
-    AsusCamera
+    Snap
 
 # Disable camera Treble path
 PRODUCT_PROPERTY_OVERRIDES += \
