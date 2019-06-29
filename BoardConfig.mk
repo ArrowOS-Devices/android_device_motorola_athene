@@ -105,7 +105,8 @@ BLUETOOTH_HCI_USE_MCT := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /vendor/bin/mm-qcamera-daemon=23
+    /system/vendor/bin/hw/motorola.hardware.camera.provider@2.4-service=23 \
+    /system/vendor/bin/mm-qcamera-daemon=23
 
 # Display
 BOARD_USES_ADRENO := true
