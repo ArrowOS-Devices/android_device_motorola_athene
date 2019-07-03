@@ -279,7 +279,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.mmi.laser.sh \
-    init.mmi.touch.sh \
     init.mmi.usb.rc \
     init.oem.hw.sh \
     init.qcom.power.rc \
