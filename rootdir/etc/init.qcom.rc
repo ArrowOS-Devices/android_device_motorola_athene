@@ -56,10 +56,6 @@ on init
     chown system log /sys/fs/pstore/dmesg-ramoops-0
     chmod 0640 /sys/fs/pstore/dmesg-ramoops-0
 
-    # Configure coredump
-    write /proc/sys/kernel/core_pattern "|/system/bin/coredump %e %p %t"
-    write /proc/self/coredump_filter "0x7f"
-
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
     # ZRAM
@@ -393,7 +389,7 @@ on post-fs-data
 
     mkdir /data/misc/ipa 0700 net_admin net_admin
 
-    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
+    mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/vendor/wifi 0770 wifi wifi
@@ -457,8 +453,6 @@ on post-fs-data
     # Create /data/time folder for time-services
     mkdir /data/vendor/time/ 0700 system system
 
-    mkdir /data/audio/ 0770 media audio
-
     # Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
@@ -475,22 +469,6 @@ on post-fs-data
     chmod 664 /persist/sensors/sensors_settings
     chown system root /persist/sensors/sensors_settings
 
-    # qti-logkit data
-    mkdir /data/misc/qti-logkit/ 0771 system system
-    mkdir /data/misc/qti-logkit/shared-privileged/ 2770 system system
-    mkdir /data/misc/qti-logkit/shared-public/ 2770 system diag
-    mkdir /data/misc/qti-logkit/socket-privileged/ 2770 system system
-    mkdir /data/misc/qti-logkit/socket-public/ 2750 system diag
-    mkdir /data/misc/qti-logkit/logdata/ 2750 system shell
-
-    # RIDL data
-    mkdir /data/misc/SelfHost/ 0710 system shell
-    mkdir /data/misc/SelfHost/QCLogs/ 2750 system shell
-    mkdir /data/misc/SelfHost/QCLogs/temp/ 0700 system shell
-    mkdir /data/misc/SelfHost/storage/ 0700 system shell
-    mkdir /data/misc/SelfHost/Running/ 2750 system shell
-    mkdir /data/misc/SelfHost/socket/ 2770 system system
-
     # Create FM dir for patchdownloader
     mkdir /data/misc/fm 0770 system system
     chmod 0770 /data/misc/fm
@@ -502,27 +480,6 @@ on post-fs-data
     # Create directory for cutback
     mkdir /data/vendor/cutback 0770 radio wifi
 
-    # Create directory for fm_radio
-    mkdir /data/misc/fm_radio 0770 system system
-
-    # setup folder for WLAN WAPI
-    mkdir /data/wapi_certificate 0750 system wifi
-    chown system wifi /data/wapi_certificate
-
-    # Create directory used by power_supply_logger
-    mkdir /data/power_supply_logger 0750 oem_5001 log
-
-    # Setup folder for aplogd
-    mkdir /data/aplogd 0750 log log
-
-    # qti-logkit data
-    mkdir /data/misc/qti-logkit/ 0771 system system
-    mkdir /data/misc/qti-logkit/shared-privileged/ 2770 system system
-    mkdir /data/misc/qti-logkit/shared-public/ 2770 system diag
-    mkdir /data/misc/qti-logkit/socket-privileged/ 2770 system system
-    mkdir /data/misc/qti-logkit/socket-public/ 2750 system diag
-    mkdir /data/misc/qti-logkit/logdata/ 2750 system shell
-
     # Permissions for phone power off log
     mkdir /data/power_log 0750 root log
     chmod 0660 /sys/module/power_supply_log/parameters/log_file
@@ -533,20 +490,6 @@ on post-fs-data
 
     # SD card encryption metadata
     mkdir /data/misc/sds 0750 root root
-
-    # Create bug2go folder
-    mkdir /data/bug2go 0750 log log
-
-    mkdir /data/hardware_revisions 0755 system system
-
-    # Sensor Hub calibration data directory
-    mkdir /data/misc/sensorhub 0770 system compass
-
-    # Create directories for Fingerprint
-    mkdir /data/vendor/misc/qti_fp 0770 system system
-    mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
-    mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
-    mkdir /data/vendor/misc/qti_fp/database 0770 system system
 
     # Imager tuning data for camera subsystem
     mkdir /data/vendor/misc/imager 0770 camera camera
@@ -673,28 +616,17 @@ service atfwd /system/bin/ATFWD-daemon
     user system
     group system radio
 
-service ril-daemon1 /vendor/bin/hw/rild -c 2
+service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     user radio
     group radio cache inet misc audio log readproc wakelock diag net_raw
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
-
-service rild1-wrapper /system/bin/sh /vendor/etc/init.qcom.ril.sh
-    class late_start
-    user root
-    group root
-    oneshot
 
 # Start Sensor daemon
 service vendor.motosh /vendor/bin/motosh boot
     class late_start
     user compass
     group compass misc input
-    oneshot
-
-service vendor.mmi-boot-sh /vendor/etc/init.mmi.boot.sh
-    class core
-    user root
     oneshot
 
 service vendor.mmi-laser-sh  /vendor/etc/init.mmi.laser.sh

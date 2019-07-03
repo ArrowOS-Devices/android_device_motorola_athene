@@ -278,15 +278,12 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.mmi.boot.sh \
     init.mmi.laser.sh \
     init.mmi.touch.sh \
     init.mmi.usb.rc \
     init.oem.hw.sh \
-    init.qcom.bt.sh \
     init.qcom.power.rc \
     init.qcom.rc \
-    init.qcom.ril.sh \
     ueventd.qcom.rc
 
 # Releasetools script
