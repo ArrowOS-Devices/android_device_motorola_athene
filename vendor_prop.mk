@@ -35,7 +35,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	voice.playback.conc.disabled=true \
 	voice.record.conc.disabled=false \
 	voice.voip.conc.disabled=true \
-	voice.conc.fallbackpath=deep-buffer \
+	vendor.voice.conc.fallbackpath=deep-buffer \
 	audio.offload.min.duration.secs=60 \
 	audio.offload.track.enable=true \
 	audio.deep_buffer.media=true \
@@ -96,7 +96,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+	debug.sf.enable_hwc_vds=1 \
 	debug.sf.hw=1 \
+	debug.sf.latch_unsignaled=1 \
+	debug.sf.recomputecrop=0 \
 	debug.egl.hw=1 \
 	persist.hwc.mdpcomp.enable=true \
 	debug.mdpcomp.logs=0 \
@@ -119,18 +122,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.qfp=false
 
-# GPS
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.mot.gps.conf.from.sim=true \
-	persist.mot.gps.smart_battery=1 \
-	persist.mot.gps.assisted=false \
-	persist.gps.qc_nlp_in_use=0 \
-	ro.pip.gated=0
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-	mm.enable.smoothstreaming=false \
-	mm.enable.sec.smoothstreaming=false \
+	mm.enable.smoothstreaming=true \
+	mm.enable.sec.smoothstreaming=true \
 	media.stagefright.log-uri=1 \
 	media.stagefright.use-awesome=false \
 	media.stagefright.enable-player=true \
@@ -328,5 +323,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.mot.build.version.sdk_int=28 \
 	ro.mot.build.product.increment=11 \
 	ro.mot.build.version.release=28.11 \
-	ro.mot.ignore_csim_appid=true \
-	persist.mot.gps.smart_battery=1
+	ro.mot.ignore_csim_appid=true
