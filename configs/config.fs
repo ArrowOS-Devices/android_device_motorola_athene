@@ -40,6 +40,12 @@ group: AID_SYSTEM
 mode: 0755
 caps: NET_BIND_SERVICE
 
+[vendor/bin/loc_launcher]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: SETUID SETGID
+
 [firmware/]
 mode: 0771
 user: AID_SYSTEM
