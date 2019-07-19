@@ -24,7 +24,7 @@
         <!-- Type="1", main launch boost of 2sec -->
         <Config
             Id="0x00001081" Type="1" Enable="true" Timeout="2000" Target="msm8952"
-            Resources="0x40C00000, 0x1, 0x40800000, 0x70C, 0x40400000, 0x1, 0x41000000, 0x4, 0x42804000, 0x1" />
+            Resources="0x40C00000, 0x1, 0x40800000, 0x673, 0x40400000, 0x1, 0x41000000, 0x4, 0x42804000, 0x1" />
 
         <Config
             Id="0x00001081" Type="1" Enable="true" Timeout="2000" Target="msm8956"
@@ -65,7 +65,7 @@
 
         <Config
             Id="0x00001082" Type="1" Enable="true" Timeout="400" Target="msm8952"
-            Resources="0x40C00000, 0x1, 0x40804000, 0x70C, 0x40804100, 0x579, 0x40800000, 0x70C,
+            Resources="0x40C00000, 0x1, 0x40804000, 0x673, 0x40804100, 0x579, 0x40800000, 0x673,
                        0x40800100, 0x579, 0x40400000, 0x1, 0x42C10000, 0x1, 0x4281C000, 0x1" />
         
         <Config
@@ -176,7 +176,7 @@
 
         <Config
             Id="0x00001088" Enable="true" Target="msm8952"
-            Resources="0x40C00000, 0x1, 0x40804000, 0x70C, 0x40804100, 0x579,
+            Resources="0x40C00000, 0x1, 0x40804000, 0x673, 0x40804100, 0x579,
                                         0x40800000, 0x519, 0x40800100, 0x519" />
                        
         <Config
