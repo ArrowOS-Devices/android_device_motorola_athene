@@ -64,9 +64,10 @@ public:
     void onGnssMeasurementsCb(GnssMeasurementsNotification gnssMeasurementsNotification) final;
 
 private:
+    std::mutex mMutex;
     sp<V1_0::IGnssMeasurementCallback> mGnssMeasurementCbIface;
     sp<IGnssMeasurementCallback> mGnssMeasurementCbIface_1_1;
-    std::mutex mMutex;
+
     bool mTracking;
 };
 

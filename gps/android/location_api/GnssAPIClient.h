@@ -30,6 +30,7 @@
 #ifndef GNSS_API_CLINET_H
 #define GNSS_API_CLINET_H
 
+
 #include <mutex>
 #include <android/hardware/gnss/1.1/IGnss.h>
 #include <android/hardware/gnss/1.1/IGnssCallback.h>
@@ -95,6 +96,7 @@ private:
     LocationAPIControlClient* mControlClient;
     LocationCapabilitiesMask mLocationCapabilitiesMask;
     bool mLocationCapabilitiesCached;
+
     LocationOptions mLocationOptions;
 };
 

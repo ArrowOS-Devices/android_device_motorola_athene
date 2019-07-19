@@ -165,6 +165,10 @@ bool GnssAPIClient::gnssSetPositionMode(IGnss::GnssPositionMode mode,
     mLocationOptions.size = sizeof(LocationOptions);
     mLocationOptions.minInterval = minIntervalMs;
     mLocationOptions.minDistance = preferredAccuracyMeters;
+    if (IGnss::GnssPositionRecurrence::RECURRENCE_SINGLE == recurrence) {
+        mLocationOptions.minInterval =
+                std::numeric_limits<decltype(mLocationOptions.minInterval)>::max();
+    }
     if (mode == IGnss::GnssPositionMode::STANDALONE)
         mLocationOptions.mode = GNSS_SUPL_MODE_STANDALONE;
     else if (mode == IGnss::GnssPositionMode::MS_BASED)
@@ -505,7 +509,7 @@ static void convertGnssSvStatus(GnssSvNotification& in, IGnssCallback::GnssSvSta
     memset(&out, 0, sizeof(IGnssCallback::GnssSvStatus));
     out.numSvs = in.count;
     if (out.numSvs > static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT)) {
-        LOC_LOGW("%s]: Too many satellites %zd. Clamps to %d.",
+        LOC_LOGW("%s]: Too many satellites %u. Clamps to %d.",
                 __FUNCTION__,  out.numSvs, V1_0::GnssMax::SVS_COUNT);
         out.numSvs = static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT);
     }

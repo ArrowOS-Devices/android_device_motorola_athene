@@ -75,7 +75,7 @@ MeasurementAPIClient::measurementSetCallback(const sp<V1_0::IGnssMeasurementCall
     mMutex.lock();
     mGnssMeasurementCbIface = callback;
     mMutex.unlock();
- 
+
     return startTracking();
 }
 
@@ -139,7 +139,7 @@ void MeasurementAPIClient::measurementClose() {
 void MeasurementAPIClient::onGnssMeasurementsCb(
         GnssMeasurementsNotification gnssMeasurementsNotification)
 {
-    LOC_LOGD("%s]: (count: %zu active: %zu)",
+    LOC_LOGD("%s]: (count: %zu active: %d)",
             __FUNCTION__, gnssMeasurementsNotification.count, mTracking);
     if (mTracking) {
         mMutex.lock();
@@ -284,7 +284,7 @@ static void convertGnssData(GnssMeasurementsNotification& in,
 {
     out.measurementCount = in.count;
     if (out.measurementCount > static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT)) {
-        LOC_LOGW("%s]: Too many measurement %zd. Clamps to %d.",
+        LOC_LOGW("%s]: Too many measurement %u. Clamps to %d.",
                 __FUNCTION__,  out.measurementCount, V1_0::GnssMax::SVS_COUNT);
         out.measurementCount = static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT);
     }

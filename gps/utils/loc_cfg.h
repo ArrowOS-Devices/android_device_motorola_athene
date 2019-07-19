@@ -120,6 +120,16 @@ int loc_read_conf_r(FILE *conf_fp, const loc_param_s_type* config_table,
 int loc_update_conf(const char* conf_data, int32_t length,
                     const loc_param_s_type* config_table, uint32_t table_length);
 
+// Below are the location conf file paths
+extern const char LOC_PATH_GPS_CONF[];
+extern const char LOC_PATH_IZAT_CONF[];
+extern const char LOC_PATH_FLP_CONF[];
+extern const char LOC_PATH_LOWI_CONF[];
+extern const char LOC_PATH_SAP_CONF[];
+extern const char LOC_PATH_APDR_CONF[];
+extern const char LOC_PATH_XTWIFI_CONF[];
+extern const char LOC_PATH_QUIPC_CONF[];
+
 int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_ptr,
                           loc_process_info_s_type** process_info_table_ptr);
 

@@ -310,6 +310,10 @@ typedef uint32_t GpsLocationExtendedFlags;
 #define GPS_LOCATION_EXTENDED_HAS_POS_DYNAMICS_DATA   0x10000
 /** GpsLocationExtended has GPS Time */
 #define GPS_LOCATION_EXTENDED_HAS_GPS_TIME   0x20000
+/** GpsLocationExtended has Extended Dilution of Precision */
+#define GPS_LOCATION_EXTENDED_HAS_EXT_DOP   0x40000
+/** GpsLocationExtended has Elapsed Time */
+#define GPS_LOCATION_EXTENDED_HAS_ELAPSED_TIME   0x80000
 
 typedef uint32_t LocNavSolutionMask;
 /* Bitmask to specify whether SBAS ionospheric correction is used  */
@@ -395,6 +399,29 @@ typedef struct {
    float           pitch;
 }LocPositionDynamics;
 
+typedef struct {
+
+  /**  Position dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float PDOP;
+
+  /**  Horizontal dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float HDOP;
+
+  /**  Vertical dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float VDOP;
+
+  /**  geometric  dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float GDOP;
+
+  /**  time dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float TDOP;
+}LocExtDOP;
+
 /* GPS Time structure */
 typedef struct {
 
@@ -453,6 +480,10 @@ typedef struct {
     LocPositionDynamics bodyFrameData;
     /** GPS Time */
     GPSTimeStruct gpsTime;
+    /** Elapsed Time */
+    int64_t  elapsedTime;
+    /** Dilution of precision associated with this position*/
+    LocExtDOP extDOP;
 } GpsLocationExtended;
 
 enum loc_sess_status {
@@ -599,6 +630,7 @@ enum loc_api_adapter_event_index {
 #define LOC_API_ADAPTER_BIT_POSITION_INJECTION_REQUEST       (1<<LOC_API_ADAPTER_REQUEST_POSITION_INJECTION)
 #define LOC_API_ADAPTER_BIT_BATCH_STATUS                     (1<<LOC_API_ADAPTER_BATCH_STATUS)
 #define LOC_API_ADAPTER_BIT_FDCL_SERVICE_REQ                 (1ULL<<LOC_API_ADAPTER_FDCL_SERVICE_REQ)
+
 
 typedef uint64_t LOC_API_ADAPTER_EVENT_MASK_T;
 
@@ -1299,6 +1331,9 @@ typedef void (*LocAgpsOpenResultCb)(bool isSuccess, AGpsExtType agpsType, const 
 
 typedef void (*LocAgpsCloseResultCb)(bool isSuccess, AGpsExtType agpsType, void* userDataPtr);
 
+/* Shared resources of LocIpc */
+#define LOC_IPC_HAL "/dev/socket/location/socket_hal"
+#define LOC_IPC_XTRA "/dev/socket/location/xtra/socket_xtra"
 
 #ifdef __cplusplus
 }

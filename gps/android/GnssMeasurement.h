@@ -48,7 +48,7 @@ struct GnssMeasurement : public IGnssMeasurement {
      * Methods from ::android::hardware::gnss::V1_0::IGnssMeasurement follow.
      * These declarations were generated from IGnssMeasurement.hal.
      */
-    Return<GnssMeasurementStatus> setCallback(
+    Return<GnssMeasurement::GnssMeasurementStatus> setCallback(
         const sp<V1_0::IGnssMeasurementCallback>& callback) override;
     Return<void> close() override;
 
@@ -56,6 +56,7 @@ struct GnssMeasurement : public IGnssMeasurement {
     Return<GnssMeasurement::GnssMeasurementStatus> setCallback_1_1(
             const sp<IGnssMeasurementCallback>& callback,
             bool enableFullTracking) override;
+
  private:
     struct GnssMeasurementDeathRecipient : hidl_death_recipient {
         GnssMeasurementDeathRecipient(sp<GnssMeasurement> gnssMeasurement) :

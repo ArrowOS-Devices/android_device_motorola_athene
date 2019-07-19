@@ -333,7 +333,8 @@ Return<sp<V1_0::IGnssNi>> Gnss::getExtensionGnssNi()  {
 
 Return<sp<V1_0::IGnssMeasurement>> Gnss::getExtensionGnssMeasurement() {
     ENTRY_LOG_CALLFLOW();
-    mGnssMeasurement = new GnssMeasurement();
+    if (mGnssMeasurement == nullptr)
+        mGnssMeasurement = new GnssMeasurement();
     return mGnssMeasurement;
 }
 
@@ -405,7 +406,7 @@ Return<sp<V1_1::IGnssConfiguration>> Gnss::getExtensionGnssConfiguration_1_1() {
     return mGnssConfig;
 }
 
-Return<bool> Gnss::injectBestLocation(const GnssLocation&  gnssLocation) {
+Return<bool> Gnss::injectBestLocation(const GnssLocation& gnssLocation) {
     ENTRY_LOG_CALLFLOW();
     GnssInterface* gnssInterface = getGnssInterface();
     if (nullptr != gnssInterface) {
@@ -422,10 +423,9 @@ void Gnss::odcpiRequestCb(const OdcpiRequestInfo& request) {
         // For emergency mode, request DBH (Device based hybrid) location
         // Mark Independent from GNSS flag to false.
         if (ODCPI_REQUEST_TYPE_START == request.type) {
-            if (request.isEmergencyMode) {
-                mGnssCbIface_1_1->gnssRequestLocationCb(false);
-            } else {
-                mGnssCbIface_1_1->gnssRequestLocationCb(true);
+            auto r = mGnssCbIface_1_1->gnssRequestLocationCb(!request.isEmergencyMode);
+            if (!r.isOk()) {
+                LOC_LOGe("Error invoking gnssRequestLocationCb %s", r.description().c_str());
             }
         } else {
             LOC_LOGv("Unsupported ODCPI request type: %d", request.type);

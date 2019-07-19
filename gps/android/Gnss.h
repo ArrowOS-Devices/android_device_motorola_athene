@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2017-2018-2018-2018, The Linux Foundation. All rights reserved.
  * Not a Contribution
  */
 /*
@@ -49,8 +49,8 @@ using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::android::hardware::gnss::V1_0::GnssLocation;
 using ::android::sp;
+using ::android::hardware::gnss::V1_0::GnssLocation;
 
 struct Gnss : public IGnss {
     Gnss();
