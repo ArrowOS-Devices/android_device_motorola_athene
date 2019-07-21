@@ -48,6 +48,7 @@
              TotalNumCores="8"
              SocIds="264,289"
              SynCore="1"
+             CoreCtlCpu="0"
              MinCoreOnline="0"
              GovInstanceType="0"
              CpufreqGov="0" />

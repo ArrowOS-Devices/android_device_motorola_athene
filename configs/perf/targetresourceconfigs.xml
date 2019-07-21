@@ -25,7 +25,7 @@ as anyway perflock calls of these resources would fail. -->
 <ResourceConfigs>
     <PerfResources>
 
-        <Config MajorValue="0x1" MinorValue="0x1" Target="msm8956" Node="/sys/module/lpm_levels/system/a72/a72-l2-pc/idle_enabled" /> <!-- pc_idle_enabled -->
+        <Config MajorValue="0x1" MinorValue="0x1" Target="msm8976" Node="/sys/module/lpm_levels/system/a72/a72-l2-pc/idle_enabled" /> <!-- pc_idle_enabled -->
         <Config MajorValue="0x1" MinorValue="0x1" Target="msm8956" Node="/sys/module/lpm_levels/system/a72/a72-l2-pc/idle_enabled" /> <!-- pc_idle_enabled -->
         <Config MajorValue="0x1" MinorValue="0x1" Target="msm8952" Supported="yes" /> <!-- pc_idle_enabled -->
         <Config MajorValue="0x1" MinorValue="0x2" Supported="no" /> <!-- lpm_bias_hyst -->
@@ -47,8 +47,10 @@ as anyway perflock calls of these resources would fail. -->
         <Config MajorValue="0x3" MinorValue="0x17" Supported="no" /> <!-- sched_freq_aggregate_threshold -->
         <Config MajorValue="0x3" MinorValue="0x18" Supported="no" /> <!-- schedtune.prefer_idle -->
 
+
         <Config MajorValue="0x4" MinorValue="0x0" Supported="yes" /> <!-- min_cpus -->
         <Config MajorValue="0x4" MinorValue="0x1" Supported="yes" /> <!-- max_cpus -->
+
 
         <!-- For INTERACTIVE major, all the interactive minors are not supported
         by default as the recent target moved to schedutil. So, for older targets
@@ -96,7 +98,7 @@ as anyway perflock calls of these resources would fail. -->
 
 
         <Config MajorValue="0x9" MinorValue="0x7" Supported="yes" /> <!-- cpu.notify_on_migrate -->
-        
+
 
         <Config MajorValue="0xA" MinorValue="0x5" Target="msm8976" Node="/sys/class/devfreq/qcom,gpubw.38/min_freq" /> <!-- soc:qcom,gpubw/min_freq -->
         <Config MajorValue="0xA" MinorValue="0x5" Target="msm8956" Node="/sys/class/devfreq/qcom,gpubw.35/min_freq" /> <!-- soc:qcom,gpubw/min_freq -->
@@ -105,7 +107,6 @@ as anyway perflock calls of these resources would fail. -->
         <Config MajorValue="0xA" MinorValue="0x6" Target="msm8956" Node="/sys/class/devfreq/qcom,gpubw.35/max_freq" /> <!-- soc:qcom,gpubw/max_freq -->
         <Config MajorValue="0xA" MinorValue="0x6" Target="msm8952" Node="/sys/class/devfreq/qcom,gpubw.39/max_freq" /> <!-- soc:qcom,gpubw/max_freq -->
         <Config MajorValue="0xA" MinorValue="0x7" Supported="no" /> <!-- gpu_disable_gpu_nap -->
-
 
 
         <Config MajorValue="0xB" MinorValue="0x2" Supported="no" /> <!-- input_boost_freq -->
