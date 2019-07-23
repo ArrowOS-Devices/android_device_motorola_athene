@@ -13,10 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
 # Inherit some common Arrow stuff.
 $(call inherit-product, vendor/arrow/config/common.mk)
 
-$(call inherit-product, device/motorola/athene/full_athene.mk)
+# Inherit from athene device
+$(call inherit-product, device/motorola/athene/device.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -34,6 +39,9 @@ BOARD_VENDOR := motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRIVATE_BUILD_DESC="athene_f-user 8.1.0 OPJ28.111 12 release-keys" \
+
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := google/walleye/walleye:9/PPP3.180510.008/4811556:user/release-keys 
