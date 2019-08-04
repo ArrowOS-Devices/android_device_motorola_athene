@@ -500,8 +500,8 @@ on property:sys.boot_completed=1
 
     write /dev/kmsg "Boot completed "
 
-on property:persist.radio.atfwd.start=false
-    stop atfwd
+on property:persist.vendor.radio.atfwd.start=false
+    stop vendor.atfwd
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
@@ -607,7 +607,7 @@ on property:hw.fm.init=1
 on property:hw.fm.init=0
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
 
-service atfwd /system/bin/ATFWD-daemon
+service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
