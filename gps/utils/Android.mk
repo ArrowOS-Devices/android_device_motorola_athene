@@ -11,6 +11,7 @@ include $(CLEAR_VARS)
 LOCAL_SHARED_LIBRARIES := \
     libutils \
     libcutils \
+    libprocessgroup \
     liblog
 
 LOCAL_SRC_FILES += \

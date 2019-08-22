@@ -40,7 +40,7 @@ extern "C" {
 
 #include <cutils/properties.h>
 #include <cutils/threads.h>
-#include <cutils/sched_policy.h>
+#include <processgroup/sched_policy.h>
 
 #define LOC_PATH_GPS_CONF_STR      "/vendor/etc/gps.conf"
 #define LOC_PATH_IZAT_CONF_STR     "/vendor/etc/izat.conf"

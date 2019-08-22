@@ -30,7 +30,7 @@
 #define LOG_TAG "LocSvc_CtxBase"
 
 #include <dlfcn.h>
-#include <cutils/sched_policy.h>
+#include <processgroup/sched_policy.h>
 #include <unistd.h>
 #include <ContextBase.h>
 #include <msg_q.h>

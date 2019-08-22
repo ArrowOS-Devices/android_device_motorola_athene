@@ -29,7 +29,7 @@
 #define LOG_NDEBUG 0
 #define LOG_TAG "LocSvc_DualCtx"
 
-#include <cutils/sched_policy.h>
+#include <processgroup/sched_policy.h>
 #include <unistd.h>
 #include <LocDualContext.h>
 #include <msg_q.h>
