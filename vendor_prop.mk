@@ -172,7 +172,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-	rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+	rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
 	rild.libargs=-d[SPACE]/dev/smd0 \
 	DEVICE_PROVISIONED=1 \
 	persist.vendor.radio.no_wait_for_card=1 \

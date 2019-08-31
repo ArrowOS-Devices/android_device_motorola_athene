@@ -514,10 +514,9 @@ on property:vold.decrypt=trigger_restart_framework
 
 #services
 service vendor.cnd /vendor/bin/cnd
-    class main
+    class late_start
     socket cnd stream 660 root inet
     group root wakelock
-    writepid /dev/cpuset/system-background/tasks
 
 service vendor.irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
@@ -550,20 +549,20 @@ service vendor.rmt_storage /vendor/bin/rmt_storage
     shutdown critical
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
-    class main
-    user system
-    socket ims_qmid stream 0660 system radio
-    group radio diag inet log
+#service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
+#    class main
+#    user system
+#    socket ims_qmid stream 0660 system radio
+#    group radio diag inet log
 
-service vendor.imsrcsservice /vendor/bin/imsrcsd
-    class main
-    user system
-    group radio diag inet log
-    writepid /dev/cpuset/system-background/tasks
+#service vendor.imsrcsservice /vendor/bin/imsrcsd
+#    class main
+#    user system
+#    group radio diag inet log
+#    writepid /dev/cpuset/system-background/tasks
 
-on property:vendor.ims.DATA_DAEMON_STATUS=1
-    restart vendor.ims_rtp_daemon
+#on property:vendor.ims.DATA_DAEMON_STATUS=1
+#    restart vendor.ims_rtp_daemon
 
 service vendor.tftp_server /vendor/bin/tftp_server
     class main
