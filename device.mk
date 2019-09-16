@@ -76,6 +76,10 @@ PRODUCT_COPY_FILES += \
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 
+# APEX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
