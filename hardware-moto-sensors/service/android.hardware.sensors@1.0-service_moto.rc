@@ -1,6 +1,0 @@
-service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service_moto
-    class hal
-    user system
-    group compass input misc system wakelock
-    capabilities BLOCK_SUSPEND SYS_NICE
-    rlimit rtprio 10 10

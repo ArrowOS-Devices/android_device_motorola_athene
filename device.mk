@@ -313,11 +313,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libese-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libese-nxp.conf
 
 # Sensors
-PRODUCT_PACKAGES += \
-    libsensorhub \
-    motosh \
-    sensorhub.msm8952 \
-    sensors.msm8952
+#PRODUCT_PACKAGES += \
+#    libsensorhub \
+#    motosh \
+#    sensorhub.msm8952 \
+#    sensors.msm8952
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
