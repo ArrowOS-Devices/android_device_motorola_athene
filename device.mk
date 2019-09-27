@@ -191,8 +191,11 @@ PRODUCT_COPY_FILES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common \
+    ims-ext-common_system \
     libshims_ims
+
+PRODUCT_BOOT_JARS += \
+    ims-ext-common_system
 
 # Keystore
 PRODUCT_PACKAGES += \
