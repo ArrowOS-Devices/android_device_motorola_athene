@@ -66,10 +66,6 @@ void vendor_load_properties()
     std::string device;
     std::string carrier;
 
-    platform = android::base::GetProperty("ro.board.platform", "");
-    if (platform != ANDROID_TARGET)
-        return;
-
     device_boot = android::base::GetProperty("ro.boot.device", "");
     property_set("ro.hw.device", device_boot.c_str());
 
