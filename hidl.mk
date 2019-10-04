@@ -34,7 +34,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service_32
+    android.hardware.biometrics.fingerprint@2.1-service
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
