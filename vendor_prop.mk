@@ -243,6 +243,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.radio.cs_srv_type=1 \
 	persist.vendor.radio.jbims=1
 
+# Rescue party
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.disable_rescue=true
+
 # RmNet Data
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.rmnet.data.enable=true \
