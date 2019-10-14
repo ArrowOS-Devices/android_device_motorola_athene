@@ -1,12 +1,7 @@
 /bt_firmware                                                                  u:object_r:bt_firmware_file:s0
-/bt_firmware/bt_firmware(/.*)?                                                u:object_r:bt_firmware_file:s0
 /dsp                                                                          u:object_r:dsp_file:s0
-/dsp/dsp(/.*)?                                                                u:object_r:dsp_file:s0
 /firmware                                                                     u:object_r:firmware_file:s0
-/firmware/firmware(/.*)?                                                      u:object_r:firmware_file:s0
-/firmware/firmware_mnt                                                        u:object_r:firmware_file:s0
-/firmware/image                                                               u:object_r:firmware_file:s0
 /fsg                                                                          u:object_r:fsg_file:s0
-/fsg/fsg(/.*)?                                                                u:object_r:fsg_file:s0
 /persist                                                                      u:object_r:persist_file:s0
-/persist/persist(/.*)?                                                        u:object_r:persist_file:s0
+
+/tombstones             													  u:object_r:rootfs:s0

@@ -139,7 +139,12 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 28819456     # 28144 * 1024 mmcblk0p30
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 27258650624 # 26619776 * 1024 mmcblk0p48
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 260014080      # 253920 * 1024 mmcblk0p46
-BOARD_ROOT_EXTRA_FOLDERS := firmware persist fsg dsp
+BOARD_ROOT_EXTRA_FOLDERS := persist
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /data/tombstones:/tombstones \
+    /vendor/dsp:/dsp \
+    /vendor/fsg:/fsg \
+    /vendor/firmware_mnt:/firmware
 
 # FM
 BOARD_HAVE_QCOM_FM := true

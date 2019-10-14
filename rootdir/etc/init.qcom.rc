@@ -320,11 +320,11 @@ on fs
     mount_all ./vendor/etc/fstab.qcom --early
 
     wait /dev/block/bootdevice/by-name/dsp
-    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/dsp /vendor/dsp nosuid nodev barrier=1
 
     mkdir /persist/data 0700  system system
-    restorecon_recursive /persist
 
+    restorecon_recursive /persist
     restorecon_recursive /dsp
 
     # use /persist as phony PDS partition
