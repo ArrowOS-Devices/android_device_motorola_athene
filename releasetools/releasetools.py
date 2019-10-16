@@ -21,8 +21,6 @@ def FullOTA_InstallEnd(info):
   ReplaceDeviceConfig(info)
 
 def ReplaceDeviceConfig(info):
-  info.script.Mount("/system")
   info.script.AppendExtra('ui_print("Checking DTV support");')
   info.script.AppendExtra('run_program("/sbin/sh", "/system/vendor/bin/check_features.sh");')
-  info.script.Unmount("/system")
   
