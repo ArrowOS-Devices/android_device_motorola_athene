@@ -71,8 +71,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.cne.feature=1 \
-	persist.sys.cnd.iwlan=1 \
+	persist.vendor.cne.feature=1 \
+	persist.vendor.cnd.iwlan=1 \
 	persist.vendor.cne.logging.qxdm=0 \
 	persist.vendor.cne.rat.wlan.chip.oem=WCN \
 	persist.vendor.dpm.feature=0 \
@@ -260,7 +260,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.data.df.dev_name=rmnet_usb0 \
 	ro.vendor.use_data_netmgrd=true \
 	persist.data.netmgrd.qos.enable=true \
-	persist.data.mode=concurrent \
 	persist.vendor.data.mode=concurrent \
 	persist.data.iwlan.enable=true
 
