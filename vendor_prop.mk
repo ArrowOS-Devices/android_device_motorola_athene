@@ -260,7 +260,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.data.df.dev_name=rmnet_usb0 \
 	ro.vendor.use_data_netmgrd=true \
 	persist.data.netmgrd.qos.enable=true \
-	persist.vendor.data.mode=concurrent \
+	persist.data.mode=concurrent \
 	persist.data.iwlan.enable=true
 
 #Trim properties
