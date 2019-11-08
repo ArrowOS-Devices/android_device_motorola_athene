@@ -579,6 +579,16 @@ service vendor.netmgrd /vendor/bin/netmgrd
     group radio system wakelock
     writepid /dev/cpuset/system-background/tasks
 
+service vendor.dataqti /vendor/bin/qti
+    class main
+    user radio
+    group radio oem_2901 diag usb net_admin
+
+service vendor.dataadpl /vendor/bin/adpl
+    class main
+    user radio
+    group radio oem_2901 diag usb net_admin
+
 on property:ro.vendor.use_data_netmgrd=false
     # netmgr not supported on specific target
     stop vendor.netmgrd
