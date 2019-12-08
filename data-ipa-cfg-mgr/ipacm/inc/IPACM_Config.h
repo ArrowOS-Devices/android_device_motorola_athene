@@ -46,9 +46,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 typedef struct
 {
-  char iface_name[IPA_IFACE_NAME_LEN];
-  bool v4_up;
-  bool v6_up;
+	char iface_name[IPA_IFACE_NAME_LEN];
+	bool v4_up;
+	bool v6_up;
 }NatIfaces;
 
 /* for IPACM rm dependency use*/
@@ -254,8 +254,6 @@ public:
 
 	int DelExtProp(ipa_ip_type ip_type);
 
-	enum ipa_hw_type GetIPAVer(bool get = false);
-
 	int Init(void);
 
 	inline bool isPrivateSubnet(uint32_t ip_addr)
@@ -351,7 +349,6 @@ public:
 	static const char *DEVICE_NAME_ODU;
 
 private:
-	enum ipa_hw_type ver;
 	static IPACM_Config *pInstance;
 	static const char *DEVICE_NAME;
 	IPACM_Config(void);
